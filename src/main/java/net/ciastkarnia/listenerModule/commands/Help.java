@@ -1,19 +1,16 @@
 package net.ciastkarnia.listenerModule.commands;
 
-public class Help implements CommandsTemplate{
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+
+public class Help extends MainCommand{
 
     @Override
-    public void execute() {
+    public void execute(MessageReceivedEvent event, String[] messageAfterPrefix, String prefix) {
+
+
+        System.out.println("embed here");
 
         
     }
-
-    @Override
-    public void help() {
-
-        
-    }
-
-
 
 }

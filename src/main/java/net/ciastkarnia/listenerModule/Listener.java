@@ -21,12 +21,8 @@ public class Listener extends ListenerAdapter{
 
 
 
-
-
-
-
         if (rawMessage.startsWith(prefix)) {
-            commandManager.handle(event);
+            commandManager.handle(event, prefix);
         }
     }
 }

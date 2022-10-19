@@ -4,6 +4,8 @@ import io.github.cdimascio.dotenv.Dotenv;
 import net.ciastkarnia.listenerModule.Listener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
 public class App {
@@ -13,6 +15,9 @@ public class App {
 
             JDA bot = JDABuilder.createDefault(token, GatewayIntent.MESSAGE_CONTENT, GatewayIntent.GUILD_MESSAGES)
             .addEventListeners(new Listener())
+            .setActivity(Activity.playing("TESTING"))
+            .setStatus(OnlineStatus.DO_NOT_DISTURB)
             .build();
+            bot.awaitReady();
     }
 }
