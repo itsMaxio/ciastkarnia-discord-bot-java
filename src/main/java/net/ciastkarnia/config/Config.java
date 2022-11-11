@@ -1,6 +1,4 @@
-package net.ciastkarnia;
-
-import org.json.simple.JSONObject;
+package net.ciastkarnia.config;
 
 public class Config {
         private static String prefix = "!";
