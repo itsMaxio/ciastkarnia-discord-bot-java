@@ -1,78 +1,77 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>net.ciastkarnia</groupId>
-  <artifactId>discord-bot</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>18</maven.compiler.release>
-  </properties>
-  <dependencies>
-    <dependency>
-      <groupId>net.dv8tion</groupId>
-      <artifactId>JDA</artifactId>
-      <version>5.0.0-alpha.21</version> 
-    </dependency>
-    <dependency>
-        <groupId>io.github.cdimascio</groupId>
-        <artifactId>dotenv-java</artifactId>
-        <version>2.2.4</version>
-    </dependency>
-    <dependency>
-        <groupId>com.google.code.gson</groupId>
-        <artifactId>gson</artifactId>
-        <version>2.8.5</version>
-    </dependency>
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.13.3</version>
-    </dependency>
-  </dependencies>
-  <build>
-    <pluginManagement>
-        <plugins>
-            <plugin>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.ciastkarnia</groupId>
+    <artifactId>discord-bot</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.compiler.source>1.11</maven.compiler.source>
+      <maven.compiler.target>1.11</maven.compiler.target>
+    </properties>
+    <dependencies>
+      <dependency>
+        <groupId>net.dv8tion</groupId>
+        <artifactId>JDA</artifactId>
+        <version>5.0.0-alpha.21</version> 
+      </dependency>
+      <dependency>
+          <groupId>io.github.cdimascio</groupId>
+          <artifactId>dotenv-java</artifactId>
+          <version>2.2.4</version>
+      </dependency>
+      <dependency>
+          <groupId>com.google.code.gson</groupId>
+          <artifactId>gson</artifactId>
+          <version>2.8.5</version>
+      </dependency>
+    </dependencies>
+    <build>
+      <pluginManagement>
+          <plugins>
+              <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-compiler-plugin</artifactId>
+                  <version>3.8.1</version>
+                  <configuration>
+                    <release>11</release>  <!--or <release>10</release>-->
+                </configuration>
+              </plugin>
+              <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${project.build.directory}/libs
+                            </outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-dependency-plugin</artifactId>
-              <executions>
-                  <execution>
-                      <id>copy-dependencies</id>
-                      <phase>prepare-package</phase>
-                      <goals>
-                          <goal>copy-dependencies</goal>
-                      </goals>
-                      <configuration>
-                          <outputDirectory>
-                              ${project.build.directory}/libs
-                          </outputDirectory>
-                      </configuration>
-                  </execution>
-              </executions>
-          </plugin>
-        </plugins>
-    </pluginManagement>
-</build>
-
-
-    <dependencyManagement>
-    
-
-        <dependencies>
-        
-
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib</artifactId>
-                <version>1.4.0</version>
-            </dependency>
-
-        </dependencies>
-
-    </dependencyManagement>
-</project>
+          </plugins>
+      </pluginManagement>
+  </build>
+  
+  
+      <dependencyManagement>
+      
+  
+          <dependencies>
+          
+  
+              <dependency>
+                  <groupId>org.jetbrains.kotlin</groupId>
+                  <artifactId>kotlin-stdlib</artifactId>
+                  <version>1.4.0</version>
+              </dependency>
+  
+          </dependencies>
+  
+      </dependencyManagement>
+  </project>  
