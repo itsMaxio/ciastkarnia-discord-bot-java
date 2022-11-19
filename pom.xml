@@ -54,24 +54,29 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                  <archive>
+                    <manifest>
+                      <mainClass>net.ciastkarnia.App</mainClass>
+                    </manifest>
+                  </archive>
+                </configuration>
+              </plugin>
           </plugins>
       </pluginManagement>
   </build>
-  
-  
       <dependencyManagement>
-      
-  
           <dependencies>
-          
-  
               <dependency>
                   <groupId>org.jetbrains.kotlin</groupId>
                   <artifactId>kotlin-stdlib</artifactId>
                   <version>1.4.0</version>
               </dependency>
-  
           </dependencies>
-  
       </dependencyManagement>
   </project>  
