@@ -1,0 +1,11 @@
+version: "3.7"
+
+name: stack
+
+services:
+  app:
+    container_name: discord-bot-container
+    image: discord-bot-image
+    build: .
+    environment:
+      - TOKEN=${TOKEN}
